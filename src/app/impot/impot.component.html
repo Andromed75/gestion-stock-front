@@ -1,0 +1,10 @@
+<div style="text-align: center;">
+  <label for="gender">homme ou femme ?</label>
+  <input id="gender" type="text" [(ngModel)]="impot.gender">
+  <br>
+  <label for="age">âge</label>
+  <input id="age" type="text" [(ngModel)]="impot.age">
+  <button (click)="getTaxes()">TESTER</button>
+</div>
+
+<div>Payez vous des impots ? : {{response}}</div>

@@ -1,0 +1,15 @@
+<div *ngIf="isAdded" class="alert alert-success" role="alert">Produit ajouté au panier </div>
+<div class="conteneur">
+  <div class="" *ngFor="let p of this.prods; let x = false">
+    <div class="card" (mouseenter)="x=!x" (mouseleave)="x=!x">
+      <h1 style="cursor: pointer;" [routerLink]="['/gestion/produit', p.id]"><span>{{ p?.nom }}</span></h1>
+      <h3>{{p.prix}}€</h3>
+      <img src="{{p?.photo}}" alt="">
+      <div class="container" *ngIf="x">
+        <button class="button" (click)="addProductTolist(p.nom, p.prix, p.photo)">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

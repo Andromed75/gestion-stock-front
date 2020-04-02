@@ -1,0 +1,30 @@
+<div class="wrapper">
+	<div class="container">
+		<h1 *ngIf="!isCreated">Création de compte client</h1>
+
+		<form class="form" *ngIf="!isCreated">
+			<input type="text" placeholder="ENTREZ VOTRE NOM ICI" [(ngModel)]="client.nom" name="nom">
+			<button type="submit" id="login-button" (click)="createClient()">CREER MON COMPTE</button>
+    </form>
+    <div *ngIf="isCreated">
+      <h2>Client créé !</h2>
+      <form class="form">
+        <button id="login-button" (click)="recreate()">Créer un nouveau compte</button>
+      </form>
+
+    </div>
+	</div>
+
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>

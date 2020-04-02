@@ -1,0 +1,34 @@
+<div class="container">
+  <div>
+    <p style="font-size: 200%; font-weight: bold; " *ngIf="prodList.length !== 0">Récapitulatif de la commande</p>
+    <p style="font-size: 500%; font-weight: bold; text-align: center; margin-top: 100px;" *ngIf="prodList.length === 0">Panier vide</p>
+
+    <div *ngFor="let item of prodList">
+      <div class="recap">
+        <div>
+          <p>Produit : {{item.nomProduit}}</p>
+          <p>Quantité : {{item.quantity}}</p>
+          <img src="{{item.photo}}" alt="">
+        </div>
+      </div>
+    </div>
+    <h3 *ngIf="prixFinal !== 0">TOTAL : {{this.prixFinal}}€</h3>
+    <div *ngIf="this.prodList.length !== 0">
+      <h3>Validation de commande</h3>
+      <label for="check">Pseudo</label>
+      <div>
+        <input id="check" type="text" [(ngModel)]="this.nomClient" style="margin-bottom: 10px;">
+      </div>
+      <div>
+        <button *ngIf="this.nomClient.length !== 0" type="button" class="btn btn-lg btn-primary" (click)="validate()">VALIDER COMMANDE</button>
+        <button *ngIf="this.nomClient.length === 0" type="button" class="btn btn-lg btn-primary" disabled>VALIDER COMMANDE</button>
+      </div>
+      <div *ngIf="isValidated == true" class="alert alert-success" role="alert">
+        Commande réussie !
+      </div>
+      <div *ngIf="isFailed == true" class="alert alert-danger" role="alert">
+        UN problème est survenu
+      </div>
+    </div>
+  </div>
+</div>

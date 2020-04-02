@@ -1,0 +1,25 @@
+<h1>CREATION DE GROUPES</h1>
+<button class="btn btn-secondary" (click)="getMyGroups()">GET GROUPS</button>
+
+<div class="studsin">
+  <label for="in">Entrez des étudiants</label>
+  <input id="in" type="text" [(ngModel)]="stud">
+  <button class="btn btn-secondary" (click)="addStudToList()">ADD</button>
+</div>
+
+
+<div *ngIf="!isLoaded">
+  <div class="students" *ngFor="let s of studList" >
+    Etudiant : {{s}}
+  </div>
+</div>
+
+
+
+<div *ngIf="isLoaded" class="results">
+  Les groupes sont :
+  <div *ngFor="let g of grouplilst;">
+    <div>{{g.studOne}} et {{g.studTwo}} <p *ngIf="g.studThree !== null">et {{g.studThree}}</p> </div>
+
+  </div>
+</div>

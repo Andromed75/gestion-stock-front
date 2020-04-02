@@ -1,0 +1,32 @@
+<div class="wrapper">
+	<div class="container">
+		<h1 *ngIf="!isCreated">Création de produit</h1>
+
+		<form class="form" *ngIf="!isCreated">
+			<input type="text" placeholder="NOM DU PRODUIT" [(ngModel)]="produit.nom" name="nom">
+			<input type="text" placeholder="PRIX DU PRODUIT" [(ngModel)]="produit.prix" name="prix">
+			<input type="text" placeholder="PHOTO DU PRODUIT" [(ngModel)]="produit.photo" name="photo">
+			<button type="submit" id="login-button" (click)="createProduit()">Create</button>
+    </form>
+    <div *ngIf="isCreated">
+      <h2>Produit créé !</h2>
+      <form class="form">
+        <button id="login-button" (click)="recreate()">Créer un nouveau produit</button>
+      </form>
+
+    </div>
+	</div>
+
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
